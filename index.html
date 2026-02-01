@@ -4,261 +4,970 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paw Track - Privacy Policy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=DM+Serif+Display&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --coral: #FF6659;
+            --coral-soft: #ff8a80;
+            --gold: #FFBF33;
+            --gold-soft: #ffd97a;
+            --teal: #33B2A6;
+            --mint: #4DD999;
+            --bg-primary: #000000;
+            --bg-card: #141414;
+            --bg-card-hover: #1a1a1a;
+            --bg-elevated: #1c1c1e;
+            --text-primary: #f2f2f5;
+            --text-secondary: #a5a5ad;
+            --text-tertiary: #737380;
+            --border-subtle: rgba(255, 102, 89, 0.12);
+            --glow-coral: rgba(255, 102, 89, 0.08);
+            --glow-gold: rgba(255, 191, 51, 0.06);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f5f5f7;
-            padding: 20px;
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
-        
-        .container {
-            max-width: 800px;
+
+        /* Background ambient glow */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 600px;
+            background: radial-gradient(ellipse, var(--glow-coral) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -100px;
+            right: -200px;
+            width: 600px;
+            height: 500px;
+            background: radial-gradient(ellipse, var(--glow-gold) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Top gradient bar */
+        .top-bar {
+            height: 3px;
+            background: linear-gradient(90deg, var(--coral), var(--gold));
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+        }
+
+        /* Navigation / Header */
+        .site-header {
+            position: sticky;
+            top: 3px;
+            z-index: 50;
+            padding: 16px 24px;
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            background: rgba(0, 0, 0, 0.7);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .site-header-inner {
+            max-width: 720px;
             margin: 0 auto;
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
-        
-        h1 {
-            color: #1d1d1f;
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-        
-        h2 {
-            color: #1d1d1f;
-            font-size: 1.8em;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #f5f5f7;
-        }
-        
-        h3 {
-            color: #1d1d1f;
-            font-size: 1.3em;
-            margin-top: 20px;
-            margin-bottom: 10px;
-        }
-        
-        p {
-            margin-bottom: 15px;
-            color: #515154;
-        }
-        
-        ul {
-            margin-left: 20px;
-            margin-bottom: 15px;
-        }
-        
-        li {
-            margin-bottom: 8px;
-            color: #515154;
-        }
-        
-        .updated {
-            color: #86868b;
-            font-size: 0.9em;
-            margin-bottom: 30px;
-        }
-        
-        .highlight {
-            background: #f5f5f7;
-            padding: 20px;
+
+        .site-header .logo-icon {
+            width: 32px;
+            height: 32px;
             border-radius: 8px;
-            margin: 20px 0;
+            background: linear-gradient(135deg, var(--coral), var(--gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
         }
-        
-        .contact {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #d2d2d7;
+
+        .site-header .logo-text {
+            font-family: 'DM Serif Display', serif;
+            font-size: 18px;
+            color: var(--text-primary);
+            letter-spacing: -0.01em;
         }
-        
+
+        .site-header .nav-label {
+            font-size: 13px;
+            color: var(--text-tertiary);
+            margin-left: auto;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        /* Main container */
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 60px 24px 80px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            margin-bottom: 56px;
+            padding-bottom: 48px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            background: rgba(255, 102, 89, 0.1);
+            border: 1px solid rgba(255, 102, 89, 0.15);
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--coral-soft);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2.4rem, 6vw, 3.2rem);
+            color: var(--text-primary);
+            line-height: 1.15;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--coral), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 17px;
+            color: var(--text-secondary);
+            max-width: 520px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .hero .updated {
+            font-size: 13px;
+            color: var(--text-tertiary);
+            margin-top: 20px;
+        }
+
+        /* Privacy Promise Card */
+        .promise-card {
+            background: linear-gradient(135deg, rgba(255, 102, 89, 0.06), rgba(255, 191, 51, 0.04));
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 32px;
+            margin-bottom: 48px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .promise-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--coral-soft), var(--gold-soft), transparent);
+            opacity: 0.3;
+        }
+
+        .promise-card .icon-row {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .promise-card .icon-dot {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .promise-card .icon-dot.coral { background: rgba(255, 102, 89, 0.15); }
+        .promise-card .icon-dot.gold { background: rgba(255, 191, 51, 0.12); }
+        .promise-card .icon-dot.teal { background: rgba(51, 178, 166, 0.12); }
+
+        .promise-card h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 22px;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .promise-card p {
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.65;
+        }
+
+        .promise-card strong {
+            color: var(--coral-soft);
+        }
+
+        /* Section styling */
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-number {
+            font-family: 'DM Serif Display', serif;
+            font-size: 13px;
+            color: var(--coral);
+            opacity: 0.7;
+            letter-spacing: 0.04em;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 26px;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
+            line-height: 1.25;
+        }
+
+        h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: 24px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: var(--text-secondary);
+            font-size: 15px;
+            margin-bottom: 14px;
+            line-height: 1.7;
+        }
+
+        p strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        ul {
+            list-style: none;
+            margin-bottom: 16px;
+            padding: 0;
+        }
+
+        ul li {
+            color: var(--text-secondary);
+            font-size: 15px;
+            padding: 6px 0 6px 24px;
+            position: relative;
+            line-height: 1.65;
+        }
+
+        ul li::before {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 14px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--coral), var(--gold));
+            opacity: 0.6;
+        }
+
+        ul li strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
         a {
-            color: #0066cc;
+            color: var(--coral-soft);
             text-decoration: none;
+            transition: color 0.2s ease;
+            border-bottom: 1px solid rgba(255, 138, 128, 0.2);
         }
-        
+
         a:hover {
-            text-decoration: underline;
+            color: var(--gold);
+            border-bottom-color: rgba(255, 191, 51, 0.3);
         }
-        
+
+        /* Divider */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.06), transparent);
+            margin: 40px 0;
+        }
+
+        /* Permission cards */
+        .permission-grid {
+            display: grid;
+            gap: 12px;
+            margin: 16px 0;
+        }
+
+        .permission-item {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 14px;
+            padding: 20px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            transition: border-color 0.2s ease;
+        }
+
+        .permission-item:hover {
+            border-color: rgba(255, 102, 89, 0.12);
+        }
+
+        .permission-item .perm-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(255, 102, 89, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .permission-item h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .permission-item p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: 1.55;
+        }
+
+        /* Subscription info card */
+        .subscription-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 102, 89, 0.1);
+            border-radius: 16px;
+            overflow: hidden;
+            margin: 16px 0;
+        }
+
+        .subscription-card .sub-header {
+            padding: 16px 20px;
+            background: linear-gradient(135deg, rgba(255, 102, 89, 0.08), rgba(255, 191, 51, 0.05));
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .sub-tier {
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .sub-tier:last-child { border-bottom: none; }
+
+        .sub-tier .tier-name {
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--text-primary);
+        }
+
+        .sub-tier .tier-detail {
+            font-size: 13px;
+            color: var(--text-tertiary);
+            margin-top: 2px;
+        }
+
+        .sub-tier .tier-price {
+            font-family: 'DM Serif Display', serif;
+            font-size: 20px;
+            color: var(--coral-soft);
+        }
+
+        .sub-tier .tier-badge {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        .sub-tier .badge-best {
+            background: linear-gradient(135deg, var(--coral), var(--gold));
+            color: #fff;
+        }
+
+        .sub-tier .badge-forever {
+            background: rgba(77, 217, 153, 0.15);
+            color: var(--mint);
+        }
+
+        /* Commitment card */
+        .commitment-card {
+            background: linear-gradient(135deg, rgba(51, 178, 166, 0.06), rgba(77, 217, 153, 0.04));
+            border: 1px solid rgba(51, 178, 166, 0.12);
+            border-radius: 20px;
+            padding: 32px;
+            margin: 48px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .commitment-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--teal), var(--mint), transparent);
+            opacity: 0.3;
+        }
+
+        .commitment-card h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 22px;
+            margin-bottom: 12px;
+            margin-top: 0;
+        }
+
+        .commitment-card p {
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        .commitment-card strong {
+            color: var(--teal);
+        }
+
+        .commitment-pillars {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+        }
+
+        .pillar {
+            text-align: center;
+        }
+
+        .pillar .pillar-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(51, 178, 166, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin: 0 auto 8px;
+        }
+
+        .pillar .pillar-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        /* Contact / Footer */
+        .contact-section {
+            margin-top: 56px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 20px;
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            text-decoration: none;
+            border-bottom: none;
+            transition: border-color 0.2s ease, background 0.2s ease;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .contact-link:hover {
+            border-color: rgba(255, 102, 89, 0.15);
+            background: var(--bg-card-hover);
+        }
+
+        .contact-link .cl-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 9px;
+            background: rgba(255, 102, 89, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .contact-link .cl-label {
+            font-size: 12px;
+            color: var(--text-tertiary);
+            line-height: 1.3;
+        }
+
+        .contact-link .cl-value {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-primary);
+            line-height: 1.3;
+        }
+
+        .footer {
+            margin-top: 56px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            text-align: center;
+        }
+
+        .footer p {
+            font-size: 13px;
+            color: var(--text-tertiary);
+        }
+
+        .footer .paw-prints {
+            margin-top: 16px;
+            font-size: 18px;
+            opacity: 0.25;
+            letter-spacing: 4px;
+        }
+
+        /* Mobile adjustments */
         @media (max-width: 600px) {
             .container {
-                padding: 20px;
+                padding: 40px 18px 60px;
             }
-            
-            h1 {
-                font-size: 2em;
+
+            .hero h1 {
+                font-size: 2rem;
             }
-            
+
             h2 {
-                font-size: 1.5em;
+                font-size: 22px;
+            }
+
+            .promise-card, .commitment-card {
+                padding: 24px;
+            }
+
+            .commitment-pillars {
+                gap: 20px;
+            }
+
+            .contact-links {
+                flex-direction: column;
+            }
+
+            .contact-link {
+                min-width: unset;
             }
         }
     </style>
 </head>
 <body>
+    <div class="top-bar"></div>
+
+    <header class="site-header">
+        <div class="site-header-inner">
+            <div class="logo-icon">🐾</div>
+            <span class="logo-text">Paw Track</span>
+            <span class="nav-label">Privacy Policy</span>
+        </div>
+    </header>
+
     <div class="container">
-        <h1>Privacy Policy</h1>
-        <p class="updated">Last Updated: December 19, 2025</p>
-        
-        <div class="highlight">
-            <h3>🔒 Privacy First</h3>
-            <p><strong>Paw Track respects your privacy.</strong> All your pet data stays on your device and in your personal iCloud account. We don't collect, transmit, store, or share any of your information with third parties.</p>
+
+        <!-- Hero -->
+        <div class="hero">
+            <div class="hero-badge">🔒 Privacy First</div>
+            <h1>Your Data Stays <span>Yours</span></h1>
+            <p class="subtitle">Paw Track respects your privacy. All your pet data stays on your device and in your personal iCloud account. We never collect, transmit, or share your information.</p>
+            <p class="updated">Last Updated: February 1, 2026</p>
         </div>
 
-        <h2>1. Information We Collect</h2>
-        <p><strong>None.</strong> Paw Track does not collect any personal information, usage data, or analytics from you or your device.</p>
-        
-        <h3>What You Create in the App:</h3>
-        <ul>
-            <li>Pet profiles (name, breed, birthdate, photo)</li>
-            <li>Activity logs (feeding, bathroom activities, walks)</li>
-            <li>Health records (vet visits, vaccinations, medications)</li>
-            <li>Reminders and notifications</li>
-            <li>Photos and documents you attach</li>
-        </ul>
-        
-        <p><strong>All this data is stored locally on your device and in your personal iCloud account.</strong> We never see, access, or store any of this information on our servers because we don't have any servers.</p>
+        <!-- Promise Card -->
+        <div class="promise-card">
+            <div class="icon-row">
+                <div class="icon-dot coral">🚫</div>
+                <div class="icon-dot gold">🔐</div>
+                <div class="icon-dot teal">✨</div>
+            </div>
+            <h3>Our Privacy Promise</h3>
+            <p><strong>No servers. No tracking. No data collection.</strong> We designed Paw Track to keep your data under your control. There's nothing to breach because we never have your data in the first place.</p>
+        </div>
 
-        <h2>2. How Your Data is Stored</h2>
-        
-        <h3>Local Storage:</h3>
-        <p>Your pet data is stored directly on your iPhone using Apple's SwiftData framework. This data never leaves your device unless you choose to sync with family members.</p>
-        
-        <h3>iCloud Sync (Optional):</h3>
-        <p>If you enable family sharing, your pet data syncs to your personal iCloud account using Apple's CloudKit. This allows you to:</p>
-        <ul>
-            <li>Access your data across your own devices</li>
-            <li>Share specific pets with family members</li>
-            <li>Keep your data backed up automatically</li>
-        </ul>
-        
-        <p><strong>Important:</strong> Your iCloud data is encrypted and protected by Apple. We cannot access your iCloud data. Apple's privacy policy governs how iCloud data is handled: <a href="https://www.apple.com/legal/privacy/" target="_blank">apple.com/legal/privacy</a></p>
+        <!-- Section 1 -->
+        <div class="section">
+            <span class="section-number">01</span>
+            <h2>Information We Collect</h2>
+            <p><strong>None.</strong> Paw Track does not collect any personal information, usage data, or analytics from you or your device.</p>
+            <h3>What You Create in the App</h3>
+            <ul>
+                <li>Pet profiles (name, breed, birthdate, photo)</li>
+                <li>Activity logs (feeding, bathroom activities, walks)</li>
+                <li>Health records (vet visits, vaccinations, medications)</li>
+                <li>Reminders and notifications</li>
+                <li>Photos and documents you attach</li>
+            </ul>
+            <p>All this data is stored <strong>locally on your device</strong> and in your personal iCloud account. We never see, access, or store any of this information on our servers — because we don't have any servers.</p>
+        </div>
 
-        <h2>3. Data Sharing</h2>
-        <p><strong>We don't share your data with anyone.</strong> Ever.</p>
-        
-        <h3>Family Sharing:</h3>
-        <p>When you choose to share a pet with family members through our family sharing feature, the shared pet's data is transmitted directly between your devices via iCloud. This is peer-to-peer sharing through Apple's infrastructure. We are not involved in this process.</p>
-        
-        <h3>Export Feature:</h3>
-        <p>When you use our PawPack export feature, a JSON file is created on your device that you can share with whomever you choose (such as your veterinarian or AI chatbot). This is entirely under your control.</p>
+        <div class="section-divider"></div>
 
-        <h2>4. Third-Party Services</h2>
-        <p><strong>We don't use any third-party services.</strong> Paw Track does not integrate with:</p>
-        <ul>
-            <li>Analytics services</li>
-            <li>Advertising networks</li>
-            <li>Crash reporting tools</li>
-            <li>Social media platforms</li>
-            <li>Any other third-party services</li>
-        </ul>
-        
-        <p>The only external service used is Apple's iCloud, which is optional and controlled by you.</p>
+        <!-- Section 2 -->
+        <div class="section">
+            <span class="section-number">02</span>
+            <h2>How Your Data is Stored</h2>
+            <h3>Local Storage</h3>
+            <p>Your pet data is stored directly on your iPhone using Apple's SwiftData framework. This data never leaves your device unless you choose to sync with family members.</p>
+            <h3>iCloud Sync (Optional)</h3>
+            <p>If you enable family sharing, your pet data syncs to your personal iCloud account using Apple's CloudKit. This allows you to:</p>
+            <ul>
+                <li>Access your data across your own devices</li>
+                <li>Share specific pets with family members</li>
+                <li>Keep your data backed up automatically</li>
+            </ul>
+            <p><strong>Important:</strong> Your iCloud data is encrypted and protected by Apple. We cannot access your iCloud data. Apple's privacy policy governs how iCloud data is handled: <a href="https://www.apple.com/legal/privacy/" target="_blank">apple.com/legal/privacy</a></p>
+        </div>
 
-        <h2>5. Permissions We Request</h2>
-        <p>Paw Track requests the following iOS permissions:</p>
-        
-        <h3>📷 Camera Access:</h3>
-        <p>Used to take photos of your pets and capture documents (like vet records). Photos are stored locally on your device only.</p>
-        
-        <h3>📅 Calendar Access:</h3>
-        <p>Used to add vaccination due dates to your calendar as reminders. You control which vaccinations get added.</p>
-        
-        <h3>🔔 Notifications:</h3>
-        <p>Used to send you reminders for pet care tasks (feeding, medications, vet appointments). All notifications are generated locally on your device.</p>
-        
-        <p><strong>All permissions are optional.</strong> You can use Paw Track without granting these permissions, though some features may be limited.</p>
+        <div class="section-divider"></div>
 
-        <h2>6. Children's Privacy</h2>
-        <p>Paw Track does not collect any information from anyone, including children under 13. The app is designed to be family-friendly and safe for all ages.</p>
+        <!-- Section 3 -->
+        <div class="section">
+            <span class="section-number">03</span>
+            <h2>Data Sharing</h2>
+            <p><strong>We don't share your data with anyone. Ever.</strong></p>
+            <h3>Family Sharing</h3>
+            <p>When you choose to share a pet with family members, the shared pet's data is transmitted directly between your devices via iCloud. This is peer-to-peer sharing through Apple's infrastructure. We are not involved in this process.</p>
+            <h3>Export Feature</h3>
+            <p>When you use our PawPack export feature, a JSON file is created on your device that you can share with whomever you choose (such as your veterinarian or AI chatbot). This is entirely under your control.</p>
+        </div>
 
-        <h2>7. Data Retention and Deletion</h2>
-        <p>You are in complete control of your data:</p>
-        <ul>
-            <li><strong>Delete individual items:</strong> Swipe to delete any pet, log, reminder, or record</li>
-            <li><strong>Delete a pet:</strong> All associated data (logs, reminders, vet visits) is also deleted</li>
-            <li><strong>Delete the app:</strong> All local data is removed from your device</li>
-            <li><strong>iCloud data:</strong> Deleting the app and disabling iCloud sync will remove data from iCloud</li>
-        </ul>
-        
-        <p>We don't retain any data because we never had access to it in the first place.</p>
+        <div class="section-divider"></div>
 
-        <h2>8. Security</h2>
-        <p>Your data security is ensured by:</p>
-        <ul>
-            <li><strong>Device encryption:</strong> All local data is protected by your device's built-in encryption</li>
-            <li><strong>iCloud encryption:</strong> iCloud data is encrypted in transit and at rest</li>
-            <li><strong>No remote access:</strong> We cannot access your data remotely</li>
-            <li><strong>No user accounts:</strong> No passwords to leak or accounts to hack</li>
-        </ul>
+        <!-- Section 4 -->
+        <div class="section">
+            <span class="section-number">04</span>
+            <h2>Third-Party Services</h2>
+            <p><strong>We don't use any third-party services.</strong> Paw Track does not integrate with:</p>
+            <ul>
+                <li>Analytics services</li>
+                <li>Advertising networks</li>
+                <li>Crash reporting tools</li>
+                <li>Social media platforms</li>
+                <li>Any other third-party services</li>
+            </ul>
+            <p>The only external service used is Apple's iCloud, which is optional and controlled by you.</p>
+        </div>
 
-        <h2>9. In-App Purchases</h2>
-        <p>Paw Track offers a one-time purchase to unlock all features ($19.99). This transaction is processed entirely by Apple through the App Store. We do not collect or store any payment information. Apple's terms and privacy policy apply: <a href="https://www.apple.com/legal/internet-services/itunes/us/terms.html" target="_blank">apple.com/legal/internet-services/itunes</a></p>
+        <div class="section-divider"></div>
 
-        <h2>10. International Users</h2>
-        <p>Paw Track is available worldwide. All data is stored on your device or in your personal iCloud account, which may be in a data center in your region. We don't transfer or process data internationally because we don't have access to your data.</p>
+        <!-- Section 5 -->
+        <div class="section">
+            <span class="section-number">05</span>
+            <h2>Permissions We Request</h2>
+            <p>Paw Track requests the following iOS permissions — <strong>all are optional</strong>:</p>
+            <div class="permission-grid">
+                <div class="permission-item">
+                    <div class="perm-icon">📷</div>
+                    <div>
+                        <h4>Camera Access</h4>
+                        <p>Take photos of your pets and capture documents like vet records. Photos are stored locally on your device only.</p>
+                    </div>
+                </div>
+                <div class="permission-item">
+                    <div class="perm-icon">📅</div>
+                    <div>
+                        <h4>Calendar Access</h4>
+                        <p>Add vaccination due dates to your calendar as reminders. You control which vaccinations get added.</p>
+                    </div>
+                </div>
+                <div class="permission-item">
+                    <div class="perm-icon">🔔</div>
+                    <div>
+                        <h4>Notifications</h4>
+                        <p>Receive reminders for pet care tasks like feeding, medications, and vet appointments. All generated locally on your device.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <h2>11. Your Rights</h2>
-        <p>You have complete control over your data:</p>
-        <ul>
-            <li><strong>Access:</strong> All your data is accessible within the app</li>
-            <li><strong>Export:</strong> Use the PawPack export feature to get a copy of your data</li>
-            <li><strong>Delete:</strong> Delete any or all data at any time</li>
-            <li><strong>Opt-out:</strong> You can disable iCloud sync at any time in iOS Settings</li>
-        </ul>
+        <div class="section-divider"></div>
 
-        <h2>12. Changes to This Policy</h2>
-        <p>We may update this privacy policy from time to time. We will notify you of any changes by:</p>
-        <ul>
-            <li>Updating the "Last Updated" date at the top of this policy</li>
-            <li>Posting an in-app notification (for significant changes)</li>
-        </ul>
-        
-        <p>Your continued use of Paw Track after changes means you accept the updated policy.</p>
+        <!-- Section 6 -->
+        <div class="section">
+            <span class="section-number">06</span>
+            <h2>Children's Privacy</h2>
+            <p>Paw Track does not collect any information from anyone, including children under 13. The app is designed to be family-friendly and safe for all ages.</p>
+        </div>
 
-        <h2>13. California Privacy Rights (CCPA)</h2>
-        <p>If you're a California resident, you have additional rights under CCPA. However, since we don't collect, sell, or share any personal information, these rights are already fully protected by our privacy-first approach.</p>
+        <div class="section-divider"></div>
 
-        <h2>14. GDPR Compliance (EU Users)</h2>
-        <p>For users in the European Union:</p>
-        <ul>
-            <li><strong>Data Controller:</strong> You are the controller of your own data</li>
-            <li><strong>Legal Basis:</strong> Your consent (by using the app)</li>
-            <li><strong>Data Processing:</strong> All processing happens locally on your device</li>
-            <li><strong>Data Transfer:</strong> No data is transferred outside your control</li>
-            <li><strong>Right to be Forgotten:</strong> Delete the app to remove all data</li>
-        </ul>
+        <!-- Section 7 -->
+        <div class="section">
+            <span class="section-number">07</span>
+            <h2>Data Retention &amp; Deletion</h2>
+            <p>You are in complete control of your data:</p>
+            <ul>
+                <li><strong>Delete individual items:</strong> Swipe to delete any pet, log, reminder, or record</li>
+                <li><strong>Delete a pet:</strong> All associated data (logs, reminders, vet visits) is also deleted</li>
+                <li><strong>Delete the app:</strong> All local data is removed from your device</li>
+                <li><strong>iCloud data:</strong> Deleting the app and disabling iCloud sync will remove data from iCloud</li>
+            </ul>
+            <p>We don't retain any data because we never had access to it in the first place.</p>
+        </div>
 
-        <div class="highlight">
+        <div class="section-divider"></div>
+
+        <!-- Section 8 -->
+        <div class="section">
+            <span class="section-number">08</span>
+            <h2>Security</h2>
+            <p>Your data security is ensured by:</p>
+            <ul>
+                <li><strong>Device encryption:</strong> All local data is protected by your device's built-in encryption</li>
+                <li><strong>iCloud encryption:</strong> iCloud data is encrypted in transit and at rest</li>
+                <li><strong>No remote access:</strong> We cannot access your data remotely</li>
+                <li><strong>No user accounts:</strong> No passwords to leak or accounts to hack</li>
+            </ul>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Section 9 -->
+        <div class="section">
+            <span class="section-number">09</span>
+            <h2>In-App Purchases &amp; Subscriptions</h2>
+            <p>Paw Track offers the following premium options:</p>
+
+            <div class="subscription-card">
+                <div class="sub-header">Available Plans</div>
+                <div class="sub-tier">
+                    <div>
+                        <div class="tier-name">Monthly</div>
+                        <div class="tier-detail">Auto-renewable subscription</div>
+                    </div>
+                    <div class="tier-price">$4.99<span style="font-family: 'DM Sans'; font-size: 13px; color: var(--text-tertiary);">/mo</span></div>
+                </div>
+                <div class="sub-tier">
+                    <div>
+                        <div class="tier-name">Yearly <span class="tier-badge badge-best">Best Value</span></div>
+                        <div class="tier-detail">Auto-renewable · Save 50%</div>
+                    </div>
+                    <div class="tier-price">$29.99<span style="font-family: 'DM Sans'; font-size: 13px; color: var(--text-tertiary);">/yr</span></div>
+                </div>
+                <div class="sub-tier">
+                    <div>
+                        <div class="tier-name">Lifetime <span class="tier-badge badge-forever">Forever</span></div>
+                        <div class="tier-detail">One-time purchase</div>
+                    </div>
+                    <div class="tier-price">$59.99</div>
+                </div>
+            </div>
+
+            <p>All transactions are processed entirely by Apple through the App Store. We do not collect or store any payment information.</p>
+            <p><strong>Auto-renewable subscriptions</strong> automatically renew unless cancelled at least 24 hours before the end of the current billing period. You can manage or cancel subscriptions at any time in your device's Settings → Apple ID → Subscriptions. Apple's terms and privacy policy apply: <a href="https://www.apple.com/legal/internet-services/itunes/us/terms.html" target="_blank">apple.com/legal/internet-services/itunes</a></p>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Section 10 -->
+        <div class="section">
+            <span class="section-number">10</span>
+            <h2>International Users</h2>
+            <p>Paw Track is available worldwide. All data is stored on your device or in your personal iCloud account, which may be in a data center in your region. We don't transfer or process data internationally because we don't have access to your data.</p>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Section 11 -->
+        <div class="section">
+            <span class="section-number">11</span>
+            <h2>Your Rights</h2>
+            <p>You have complete control over your data:</p>
+            <ul>
+                <li><strong>Access:</strong> All your data is accessible within the app</li>
+                <li><strong>Export:</strong> Use the PawPack export feature to get a copy of your data</li>
+                <li><strong>Delete:</strong> Delete any or all data at any time</li>
+                <li><strong>Opt-out:</strong> You can disable iCloud sync at any time in iOS Settings</li>
+            </ul>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Section 12 -->
+        <div class="section">
+            <span class="section-number">12</span>
+            <h2>Changes to This Policy</h2>
+            <p>We may update this privacy policy from time to time. We will notify you of any changes by:</p>
+            <ul>
+                <li>Updating the "Last Updated" date at the top of this policy</li>
+                <li>Posting an in-app notification (for significant changes)</li>
+            </ul>
+            <p>Your continued use of Paw Track after changes means you accept the updated policy.</p>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Section 13 -->
+        <div class="section">
+            <span class="section-number">13</span>
+            <h2>California Privacy Rights (CCPA)</h2>
+            <p>If you're a California resident, you have additional rights under CCPA. However, since we don't collect, sell, or share any personal information, these rights are already fully protected by our privacy-first approach.</p>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Section 14 -->
+        <div class="section">
+            <span class="section-number">14</span>
+            <h2>GDPR Compliance (EU Users)</h2>
+            <p>For users in the European Union:</p>
+            <ul>
+                <li><strong>Data Controller:</strong> You are the controller of your own data</li>
+                <li><strong>Legal Basis:</strong> Your consent (by using the app)</li>
+                <li><strong>Data Processing:</strong> All processing happens locally on your device</li>
+                <li><strong>Data Transfer:</strong> No data is transferred outside your control</li>
+                <li><strong>Right to be Forgotten:</strong> Delete the app to remove all data</li>
+            </ul>
+        </div>
+
+        <!-- Commitment Card -->
+        <div class="commitment-card">
             <h3>✨ Our Commitment</h3>
-            <p><strong>Privacy isn't just a policy for us—it's how we built the app.</strong> We designed Paw Track to keep your data yours. No servers, no tracking, no data collection. Just a simple, powerful pet care app that respects your privacy.</p>
+            <p><strong>Privacy isn't just a policy for us — it's how we built the app.</strong> We designed Paw Track to keep your data yours. Just a simple, powerful pet care app that respects your privacy.</p>
+            <div class="commitment-pillars">
+                <div class="pillar">
+                    <div class="pillar-icon">🚫</div>
+                    <div class="pillar-label">No Servers</div>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-icon">👁️‍🗨️</div>
+                    <div class="pillar-label">No Tracking</div>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-icon">📊</div>
+                    <div class="pillar-label">No Analytics</div>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-icon">💰</div>
+                    <div class="pillar-label">No Ads</div>
+                </div>
+            </div>
         </div>
 
-        <div class="contact">
-            <h2>15. Contact Us</h2>
-            <p>If you have questions about this privacy policy or Paw Track's privacy practices, please contact us at:</p>
-            <p>
-                <strong>Email:</strong> <a href="mailto:pawtrackapple@gmail.com">pawtrackapple@gmail.com</a><br>
-                <strong>App Store:</strong> <a href="https://apps.apple.com/app/paw-track" target="_blank">Paw Track on the App Store</a>
-            </p>
-            
-            <p style="margin-top: 30px; color: #86868b; font-size: 0.9em;">
-                © 2025 Paw Track. All rights reserved.
-            </p>
+        <!-- Contact Section -->
+        <div class="contact-section">
+            <span class="section-number">15</span>
+            <h2>Contact Us</h2>
+            <p>If you have questions about this privacy policy or Paw Track's privacy practices:</p>
+            <div class="contact-links">
+                <a href="mailto:pawtrackapple@gmail.com" class="contact-link">
+                    <div class="cl-icon">✉️</div>
+                    <div>
+                        <div class="cl-label">Email</div>
+                        <div class="cl-value">pawtrackapple@gmail.com</div>
+                    </div>
+                </a>
+                <a href="https://apps.apple.com/app/paw-track" target="_blank" class="contact-link">
+                    <div class="cl-icon">📱</div>
+                    <div>
+                        <div class="cl-label">App Store</div>
+                        <div class="cl-value">Paw Track</div>
+                    </div>
+                </a>
+            </div>
         </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>© 2025–2026 Paw Track. All rights reserved.</p>
+            <div class="paw-prints">🐾 🐾 🐾</div>
+        </div>
+
     </div>
 </body>
 </html>

@@ -1,5 +1,4 @@
 
-Privacy policy v2 · HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,11 +37,12 @@ Privacy policy v2 · HTML
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 60px;
         }
 
         body {
             font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.7;
+            line-height: 1.75;
             color: var(--text-primary);
             background: var(--bg-primary);
             min-height: 100vh;
@@ -57,9 +57,9 @@ Privacy policy v2 · HTML
             top: -200px;
             left: 50%;
             transform: translateX(-50%);
-            width: 800px;
-            height: 600px;
-            background: radial-gradient(ellipse, var(--glow-coral) 0%, transparent 70%);
+            width: 900px;
+            height: 700px;
+            background: radial-gradient(ellipse, rgba(255, 102, 89, 0.06) 0%, transparent 70%);
             pointer-events: none;
             z-index: 0;
         }
@@ -78,7 +78,7 @@ Privacy policy v2 · HTML
 
         /* Top gradient bar */
         .top-bar {
-            height: 3px;
+            height: 2px;
             background: linear-gradient(90deg, var(--coral), var(--gold));
             position: fixed;
             top: 0;
@@ -90,7 +90,7 @@ Privacy policy v2 · HTML
         /* Navigation / Header */
         .site-header {
             position: sticky;
-            top: 3px;
+            top: 2px;
             z-index: 50;
             padding: 16px 24px;
             backdrop-filter: blur(20px) saturate(180%);
@@ -100,7 +100,7 @@ Privacy policy v2 · HTML
         }
 
         .site-header-inner {
-            max-width: 720px;
+            max-width: 740px;
             margin: 0 auto;
             display: flex;
             align-items: center;
@@ -150,9 +150,9 @@ Privacy policy v2 · HTML
 
         /* Main container */
         .container {
-            max-width: 720px;
+            max-width: 740px;
             margin: 0 auto;
-            padding: 60px 24px 80px;
+            padding: 80px 24px 100px;
             position: relative;
             z-index: 1;
         }
@@ -200,6 +200,7 @@ Privacy policy v2 · HTML
             text-transform: uppercase;
             letter-spacing: 0.08em;
             margin-bottom: 24px;
+            backdrop-filter: blur(12px);
         }
 
         @keyframes shieldPulse {
@@ -225,12 +226,13 @@ Privacy policy v2 · HTML
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            text-shadow: 0 0 60px rgba(255, 102, 89, 0.1);
         }
 
         .hero .subtitle {
-            font-size: 17px;
+            font-size: 18px;
             color: var(--text-secondary);
-            max-width: 520px;
+            max-width: 540px;
             margin: 0 auto;
             line-height: 1.6;
         }
@@ -245,8 +247,8 @@ Privacy policy v2 · HTML
         .trust-stats {
             display: flex;
             justify-content: center;
-            gap: 32px;
-            margin-top: 28px;
+            gap: 40px;
+            margin-top: 36px;
             flex-wrap: wrap;
         }
 
@@ -256,7 +258,7 @@ Privacy policy v2 · HTML
 
         .trust-stat .stat-value {
             font-family: 'DM Serif Display', serif;
-            font-size: 28px;
+            font-size: clamp(2.8rem, 7vw, 3.6rem);
             background: linear-gradient(135deg, var(--coral), var(--gold));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -276,12 +278,13 @@ Privacy policy v2 · HTML
         /* Privacy Promise Card */
         .promise-card {
             background: linear-gradient(135deg, rgba(255, 102, 89, 0.06), rgba(255, 191, 51, 0.04));
-            border: 1px solid var(--border-subtle);
+            border: 1px solid rgba(255, 102, 89, 0.15);
             border-radius: 20px;
             padding: 32px;
             margin-bottom: 48px;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 0 40px rgba(255, 102, 89, 0.03), inset 0 1px 0 rgba(255, 102, 89, 0.08);
         }
 
         .promise-card::before {
@@ -292,7 +295,7 @@ Privacy policy v2 · HTML
             right: 0;
             height: 1px;
             background: linear-gradient(90deg, transparent, var(--coral-soft), var(--gold-soft), transparent);
-            opacity: 0.3;
+            opacity: 0.4;
         }
 
         .promise-card .icon-row {
@@ -335,10 +338,11 @@ Privacy policy v2 · HTML
         /* TL;DR Card */
         .tldr-card {
             background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 16px;
             padding: 24px 28px;
             margin-bottom: 48px;
+            box-shadow: 0 0 30px rgba(255, 191, 51, 0.02), inset 0 1px 0 rgba(255, 255, 255, 0.06);
         }
 
         .tldr-card .tldr-header {
@@ -393,26 +397,28 @@ Privacy policy v2 · HTML
 
         /* Section styling */
         .section {
-            margin-bottom: 40px;
+            margin-bottom: 52px;
         }
 
         .section-number {
             font-family: 'DM Serif Display', serif;
-            font-size: 13px;
+            font-size: 11px;
             color: var(--coral);
-            opacity: 0.7;
+            opacity: 0.5;
             letter-spacing: 0.04em;
             margin-bottom: 6px;
             display: block;
+            font-weight: 400;
         }
 
         h2 {
             font-family: 'DM Serif Display', serif;
-            font-size: 26px;
+            font-size: 28px;
             color: var(--text-primary);
             margin-bottom: 16px;
             letter-spacing: -0.01em;
             line-height: 1.25;
+            font-weight: 400;
         }
 
         h3 {
@@ -426,8 +432,8 @@ Privacy policy v2 · HTML
         p {
             color: var(--text-secondary);
             font-size: 15px;
-            margin-bottom: 14px;
-            line-height: 1.7;
+            margin-bottom: 16px;
+            line-height: 1.75;
         }
 
         p strong {
@@ -444,7 +450,7 @@ Privacy policy v2 · HTML
         ul li {
             color: var(--text-secondary);
             font-size: 15px;
-            padding: 6px 0 6px 24px;
+            padding: 8px 0 8px 28px;
             position: relative;
             line-height: 1.65;
         }
@@ -452,10 +458,10 @@ Privacy policy v2 · HTML
         ul li::before {
             content: '';
             position: absolute;
-            left: 6px;
-            top: 14px;
-            width: 6px;
-            height: 6px;
+            left: 8px;
+            top: 15px;
+            width: 5px;
+            height: 5px;
             border-radius: 50%;
             background: linear-gradient(135deg, var(--coral), var(--gold));
             opacity: 0.6;
@@ -482,7 +488,7 @@ Privacy policy v2 · HTML
         .section-divider {
             height: 1px;
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.06), transparent);
-            margin: 40px 0;
+            margin: 52px 0;
         }
 
         /* Permission cards */
@@ -496,16 +502,19 @@ Privacy policy v2 · HTML
             background: var(--bg-card);
             border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 14px;
-            padding: 20px;
+            padding: 24px;
             display: flex;
             gap: 16px;
             align-items: flex-start;
-            transition: border-color 0.3s ease, transform 0.2s ease;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            backdrop-filter: blur(8px);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
         }
 
         .permission-item:hover {
             border-color: rgba(255, 102, 89, 0.12);
-            transform: translateY(-1px);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 102, 89, 0.08);
         }
 
         .permission-item .perm-icon {
@@ -569,6 +578,8 @@ Privacy policy v2 · HTML
             border: 1px solid rgba(255, 255, 255, 0.04);
             border-radius: 16px;
             flex-wrap: wrap;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(8px);
         }
 
         .flow-node {
@@ -620,6 +631,7 @@ Privacy policy v2 · HTML
             border-radius: 16px;
             overflow: hidden;
             margin: 16px 0;
+            box-shadow: 0 0 30px rgba(255, 102, 89, 0.03);
         }
 
         .subscription-card .sub-header {
@@ -688,11 +700,12 @@ Privacy policy v2 · HTML
             background: linear-gradient(135deg, rgba(51, 178, 166, 0.06), rgba(77, 217, 153, 0.04));
             border: 1px solid rgba(51, 178, 166, 0.12);
             border-radius: 20px;
-            padding: 32px;
+            padding: 40px;
             margin: 48px 0;
             text-align: center;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 0 50px rgba(51, 178, 166, 0.04), inset 0 1px 0 rgba(51, 178, 166, 0.1);
         }
 
         .commitment-card::before {
@@ -783,7 +796,7 @@ Privacy policy v2 · HTML
             border-radius: 12px;
             text-decoration: none;
             border-bottom: none;
-            transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             flex: 1;
             min-width: 200px;
         }
@@ -791,7 +804,8 @@ Privacy policy v2 · HTML
         .contact-link:hover {
             border-color: rgba(255, 102, 89, 0.15);
             background: var(--bg-card-hover);
-            transform: translateY(-1px);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
         }
 
         .contact-link .cl-icon {
@@ -834,8 +848,8 @@ Privacy policy v2 · HTML
         .footer .paw-prints {
             margin-top: 16px;
             font-size: 18px;
-            opacity: 0.25;
-            letter-spacing: 4px;
+            opacity: 0.15;
+            letter-spacing: 8px;
         }
 
         /* Mobile adjustments */
@@ -1346,7 +1360,7 @@ Privacy policy v2 · HTML
                         <div class="cl-value">pawtrackapple@gmail.com</div>
                     </div>
                 </a>
-                <a href="https://apps.apple.com/app/pawtrack-pet-care-log/id6756696421" target="_blank" rel="noopener" class="contact-link">
+                <a href="https://apps.apple.com/jp/app/pawtrack-pet-care-log/id6756696421?l=en-US" target="_blank" rel="noopener" class="contact-link">
                     <div class="cl-icon">📱</div>
                     <div>
                         <div class="cl-label">App Store</div>
